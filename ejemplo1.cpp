@@ -12,11 +12,13 @@ int main(){
     int n;
     cout<<"Ingrese la cantidad de trabajadores: ";
     cin >>n;
+    cin.ignore();
     for (int i = 0; i<n ; i++){
         cout<<"Digite el numero del empleado: ";
         cin >>EMPLEADOS[i].num;
+        cin.ignore();
         cout<<"Escriba el nombre del empleado: ";
-        cin >>EMPLEADOS[i].nom;
+        getline(cin, EMPLEADOS[i].nom);
         cout<<"Ingrese el dinero de venta: "<<endl;
         for(int j=0 ; j<12 ; j++){
             cin >>EMPLEADOS[i].ven[j];
