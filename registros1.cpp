@@ -8,7 +8,8 @@ using namespace std;
 }; 
   int main () {
   EMP EMPLEADOS[100];
-  int n,mayor,menor,M,ME;
+  int n,M=0,ME=0;
+  double mayor,menor;
   cout<<"Cantidad de trabajadores: ";
   cin>>n;
   cout<<endl;
