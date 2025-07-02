@@ -18,7 +18,7 @@ void leerContacto(contactoEmail &, string, char, int, correo);
 void imprimeContacto(contactoEmail &);
 
 int main(){
-    int n, op,oc,pos;
+    int n, op,oc,m,p;
     string nom, user, domain;
     char sex;
     int edad;
@@ -31,6 +31,7 @@ int main(){
         cout<<"1. Agregar contacto"<<endl;
         cout<<"2. Mostrar contactos"<<endl;
         cout<<"3. Modificar contactos."<<endl;
+        cout<<"4.-Eliminar contacto"<<endl;
         cout<<"0. Salir"<<endl;
         cout<<"Elige una opcion: "; cin>>op;
         switch(op){
@@ -62,20 +63,30 @@ int main(){
                 break;
             case 3:
                 cout << "Ingrese el numero del contacto a modificar: ";
-                cin >> pos;
-                imprimeContacto(lista[pos]);
+                cin >> m;
+                imprimeContacto(lista[m]);
                 cout << "Ingrese el nombre: ";
                 cin.ignore();
-                getline(cin,lista[pos].nom);
+                getline(cin,lista[m].nom);
                 cout << "Ingrese el sexo (M/F): ";
-                cin >> lista[pos].sex;
+                cin >> lista[m].sex;
                 cout << "Ingrese el edad: ";
-                cin >> lista[pos].edad;
+                cin >> lista[m].edad;
                 cout << "Ingrese el usuario del correo: ";
-                cin >> lista[pos].email.user;
+                cin >> lista[m].email.user;
                 cout << "Ingrese el dominio del correo: ";
-                cin >> lista[pos].email.domain;
+                cin >> lista[m].email.domain;
                 cout<<endl;
+                system("pause");
+                break;
+            case 4:
+                cout<<"Ingrese el contacto a eliminar. "<<endl;
+                cin>>p;
+                imprimeContacto(lista[p]);
+                for (int i=p ; i< n-1 ; i++){
+                    lista[i]=lista[i+1];
+                }
+                n-=1;
                 system("pause");
                 break;
             case 0:
@@ -85,7 +96,7 @@ int main(){
                 cout<<"Opcion no valida!"<<endl;
                 system("pause");
                 break;
-        }
+            }
     } while(op != 0);
     return 0;
 }
